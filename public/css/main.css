@@ -44,23 +44,13 @@ html {
 
 
 body {
-  background: var(--clr-white);
-  color: var(--clr-dark);
+  background: var(--clr-dark);
+  color: var(--clr-white);
   margin: 0;
   font-family: var(--ff-primary);
   font-size: var(--fs-body);
   line-height: 1.6;
 }
-
-section {
-  padding: 5em 2em;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
 strong { font-weight: var(--fw-bold) }
 
 :focus {
@@ -76,6 +66,9 @@ strong { font-weight: var(--fw-bold) }
   position: fixed;
   z-index: 10;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .nav li{
@@ -84,7 +77,27 @@ strong { font-weight: var(--fw-bold) }
   display: block;
   color: var(--clr-white);
   text-align: center;
-  padding: 0.5em 0.5em;
+  padding: 0 0.5em 0 0.5em ;
   text-decoration: none;
   font-size: 1.5rem;
+}
+
+/* Main Section */
+
+.hero {
+margin: 0;
+}
+
+.hero__container {
+  background-color: var(--clr-black);
+  height: 80vh;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.hero__image {
+  width: 400px;
+  height: 400px;
 }
