@@ -60,18 +60,30 @@ strong { font-weight: var(--fw-bold) }
 
 /* Nav Bar */
 
-.nav {
-  overflow: hidden;
-  background-color: var(--clr-darkgreen);
-  position: fixed;
-  z-index: 10;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+#nav {
+  padding: 20px;
+  position: sticky;
 }
 
-.nav li{
+.nav {
+  display: grid;
+  min-height: 50px;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr max-content max-content;
+  align-items: center;
+}
+
+.nav__link-logo{
+  display: grid;
+  justify-content: start;
+  align-content: center;
+}
+
+.nav__item-logo-image {
+  height: 50px;
+}
+
+.nav__link{
   text-decoration: none;
   float: right;
   display: block;
