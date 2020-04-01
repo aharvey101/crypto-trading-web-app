@@ -1,40 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/main.css">
-  <title>Home</title>
-</head>
+<%- include('./partials/header') %>
 
 <body>
-  <!-- Nav Bar -->
-  <section id="nav">
-    <div class="nav">
-      <a class="nav__link-logo" href="/"><img class="nav__item-logo-image"
-          src="https://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png" alt="placeholder"></a>
-      <a class="nav__link" href="/profile">Profile</a>
-      <a class="nav__link" href="/login">Login</a>
-
-    </div>
-  </section>
-
   <!-- Main Section -->
   <section class="hero">
     <div class="hero__container">
-      <div class="hero__image">
-
-      </div>
       <div class="hero__signup-container">
-        <form action="/signup">
+        <form action="/" method="POST" class="form">
           <div class="hero__signup-title h2">Signup</div>
-          <div class="hero_signup-form-group">
-            <label for="username">Name</label>
-            <input class="form-control" type="text" name="username" placeholder="username">
+          <div class="form-group hero_signup-form-group">
+            <label for="firstName">First Name</label>
+            <input class="form-control" type="text" name="firstName" placeholder="Jack">
           </div>
-          <div class="hero_signup-form-group">
-            <label for="password">Email</label>
+          <div class="form-group  hero_signup-form-group">
+            <label for="lastName">Last Name</label>
+            <input class="form-control" type="text" name="lastName" placeholder="Rojers">
+          </div>
+          <div class="form-group hero_signup-form-group">
+            <label for="username">Email</label>
+            <input class="form-control" type="text" name="username" placeholder="alex@up.me">
+          </div>
+          <div class="form-group hero_signup-form-group">
+            <label for="password">Password</label>
             <input class="form-control" type="password" name="password" id="" placeholder="password">
           </div>
           <div class="hero_signup-form-group">
@@ -44,8 +30,4 @@
       </div>
     </div>
   </section>
-
-  <!-- Footer -->
-</body>
-
-</html>
+  <%- include('./partials/footer') %>

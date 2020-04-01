@@ -48,8 +48,7 @@ html {
 
 
 body {
-  background: var(--clr-dark);
-  color: var(--clr-white);
+  background: var(--clr-white);
   margin: 0;
   font-family: var(--ff-primary);
   font-size: var(--fs-body);
@@ -69,6 +68,7 @@ strong { font-weight: var(--fw-bold) }
 }
 
 .nav {
+  background-color: var(--clr-dark);
   display: grid;
   min-height: 30px;
   width: 100%;
@@ -103,6 +103,7 @@ strong { font-weight: var(--fw-bold) }
 
 .hero__container{
   margin: 0;
+  padding: 1em;
   height: 80vh;
   background-color: var(--clr-black);
   display:grid;
@@ -112,16 +113,35 @@ strong { font-weight: var(--fw-bold) }
   gap: 1em;
 }
 .hero__image {
-  width: 400px;
-  height: 400px;
+  height: 600px;
+  width: 600px;
   background-color: beige;
 }
 
 .hero__signup-container{ 
   text-align: center;
   background-color: var(--clr-white);
-  height: 400px;
-  width: 300px;
+  height: 100%;
+  width: 500px;
   color: #040f0f;
 }
 
+.trade-input-container {
+  text-align: center;
+  background-color: var(--clr-white);
+  height: 100%;
+  width: 100%;
+  color: #040f0f;
+  display: grid;
+}
+
+.trade-input-form {
+  margin: 0 auto;
+  width: 200px;
+
+}
+
+.trade-input-form-control {
+  display: grid;
+  padding: 10px;
+}

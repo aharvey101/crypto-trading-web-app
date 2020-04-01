@@ -1,0 +1,9 @@
+<%- include('./partials/header') %>
+
+<div class="conatiner" style="color: black;">
+  <h1><%= trade.pair %></h1>
+  <h3><%= trade.timeframe %></h3>
+  <a href="/trade-management/<%= trade.id %>/edit"><button>Edit</button></a>
+</div>
+
+<%- include('./partials/footer') %>

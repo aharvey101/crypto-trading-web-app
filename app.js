@@ -7,8 +7,21 @@ const express = require('express'),
   passport = require('passport'),
   localStrategy = require('passport-local'),
   methodOverride = require('method-override'),
-  port = 3000;
+  port = 3000,
+  User = require('./models/user.js');
 
+//Requiring Routes Files
+const homeRoutes = require('./routes/home'),
+  tradeManagementRoutes = require('./routes/trade-management'),
+  tradeInputRoutes = require('./routes/trade-input');
+
+
+mongoose.connect(process.env.DB || 'mongodb://localhost/trading-app',
+  { useUnifiedTopology: true, useNewUrlParser: true })
+  .then(() => console.log('DB Connected'))
+  .catch(err => {
+    console.log(`DB Connection Error: ${err.message}`)
+  })
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,10 +37,22 @@ app.use(
     saveUninitialized: false
   })
 );
+app.use(passport.initialize());
+app.use(passport.session())
+passport.use(new localStrategy(User.authenticate()))
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
 
-app.get('/', function (req, res) {
-  res.render('home');
-})
+//Current user for all routes
+app.use(function (req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
+});
+
+//Using Routes
+app.use('/', homeRoutes);
+app.use('/trade-management', tradeManagementRoutes);
+app.use('/trade-input', tradeInputRoutes);
 
 //Start Server
 app.listen(process.env.PORT || 3000, process.env.IP, function () {

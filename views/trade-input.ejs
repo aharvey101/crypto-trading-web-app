@@ -1,0 +1,71 @@
+<%- include('./partials/header')%>
+
+<body>
+  <div class="trade-input-container">
+    <form action="/trade-input" method='POST' class="trade-input-form">
+      <div class="hero__signup-title h2">Signup</div>
+      <div class="trade-input-form-control">
+        <label for="pair">Pair</label>
+        <input class="form-control" type="text" name="pair" placeholder="BTCUSD">
+        <div class="trade-input-form-control">
+        </div>
+        <label for="timeframe">Timeframe</label>
+        <input class="form-control" type="text" name="timeframe" id="" placeholder="8hr">
+      </div>
+      <!-- <div class="trade-input-form-control">
+        <label for="entryDate">Entry Date</label>
+        <input class="form-control" type="date" name="timeframe" id="" placeholder="15/06/2019">
+      </div> -->
+      <div class="trade-input-form-control">
+        <label for="tradeType">Trade Type</label>
+        <select name="tradeType" id="tradeType">
+          <option value="">--Please Choose An Option--</option>
+          <option value="cradle">Cradle</option>
+          <option value="breakout">Breakout</option>
+          <option value="fibonacciBooster">Fibonacci Booster</option>
+        </select>
+      </div>
+      <div class="trade-input-form-control">
+        <label for="entryPrice">Entry Price</label>
+        <input class="form-control" type="number" name="entryPrice" id="" placeholder="$100">
+      </div>
+      <div class="trade-input-form-control">
+        <label for="stopPrice">Stop Price</label>
+        <input class="form-control" type="number" name="stopPrice" id="" placeholder="$95">
+      </div>
+      <div class="trade-input-form-control">
+        <label for="portfolioSize">Portfolio Size (USD)</label>
+        <input class="form-control" type="number" name="invalidationPrice" id="" placeholder="$1000">
+      </div>
+      <div class="trade-input-form-control">
+        <label for="riskPercentage">Risk Percentage</label>
+        <input class="form-control" type="number" min name="riskPercentage" id="" placeholder="1%">
+      </div>
+      <div class="trade-input-form-control">
+        <label for="entrySnapShot">Entry Snap Shots (3 minumum)</label>
+        <input class="form-control" type="text" name="entrySnapshot" id=""
+          placeholder="http://yoururl.com/someimage.jpg">
+        <input class="form-control" type="text" name="entrySnapshot" id=""
+          placeholder="http://yoururl.com/someimage.jpg">
+        <input class="form-control" type="text" name="entrySnapshot" id=""
+          placeholder="http://yoururl.com/someimage.jpg">
+        <input class="form-control" type="text" name="entrySnapshot" id=""
+          placeholder="http://yoururl.com/someimage.jpg">
+        <input class="form-control" type="text" name="entrySnapshot" id=""
+          placeholder="http://yoururl.com/someimage.jpg">
+      </div>
+      <div class="trade-input-form-control">
+        <label for="entryNotes">Entry Notes</label>
+        <textarea name="entryNotes" id="entryNotes" cols="30" rows="10"></textarea>
+      </div>
+      <div class="trade-input-form-control">
+        <label for="perfectEntry">Perfect Entry</label>
+        <input class="form-control" type="checkbox" name="invalidationPrice" id="" placeholder="$96">
+      </div>
+
+  </div>
+  <div class="trade-input-form-control">
+    <button class="">submit</button>
+    </form>
+  </div>
+  <%- include('./partials/footer')%>
