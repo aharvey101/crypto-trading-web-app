@@ -1,20 +1,25 @@
-To Do :
 
-Login Logic
-[X] Create user Schema
-[x] login logic
-[x] Create Login successful route
-[x] Is Authenticated
-[x] Associate trades to user
+## To Do :
 
-Trade Management backend Logic
-[x] Create Trades Schema
-[x] Create trade input page
-[x] Test trade input logic
-[x] Connect trade input logic to managment page
-[x] Create trade management page
+### Backend:
 
-Backend Css:
+#### Trade Input Form
+*[] Style
+*[] fix date input problem
+*[] update route to take all information to the DB
+*[] make form output a string for the script to run
+*[]
+
+#### Trade Management
+* [x] Fix trades not showing in the table (probably a route thing)
+* []
+
+#### Backend Css:
 
 [] Side pane nav
+[]
+
+
+
+
 

@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const Trade = require('../models/trades')
+const middleware = require('../middleware/isLoggedIn.js')
 
 //Trade input page
-router.get('/', isLoggedIn, (req, res) => {
+router.get('/', middleware.isLoggedIn, (req, res) => {
   res.render('trade-input')
 });
 
@@ -27,12 +28,4 @@ router.post('/', (req, res) => {
     }
   })
 });
-
-//Middleware
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-}
-
 module.exports = router;

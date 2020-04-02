@@ -1,0 +1,141 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Colors */
+:root {
+  --ff-primary: 'Source Sans Pro', sans-serif;
+  --ff-secondary: 'Source Code Pro', monospace;
+  
+  --fw-reg: 300;
+  --fw-bold: 900;
+  
+  --clr-white: #fcfffc;
+  --clr-dark: #2d3a3a;
+  --clr-green: #2ba84a;
+  --clr-darkgreen:#248232;
+  --clr-black:#040f0f;
+  
+  --fs-h1: 3rem;
+  --fs-h2: 2.25rem;
+  --fs-h3: 1.25rem;
+  --fs-body: 1rem;
+  
+  --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+  0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+
+/* General Styles */
+
+@media (min-width: 800px) {
+  :root {
+      --fs-h1: 4.5rem;
+      --fs-h2: 2rem;
+      --fs-h3: 1.5rem;
+      --fs-body: 1.125rem;
+  }
+}
+
+.h2 {
+  font-size: var(--fs-h2)
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  background: var(--clr-white);
+  margin: 0;
+  font-family: var(--ff-primary);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+strong { font-weight: var(--fw-bold) }
+
+:focus {
+  outline: 3px solid var(--clr-green);
+  outline-offset: 3px;
+}
+
+.main {
+  display: grid;
+}
+
+/* Nav Bar */
+
+#nav {
+  position: sticky;
+  z-index: 10;
+}
+
+.nav {
+  background-color: var(--clr-dark);
+  display: grid;
+  min-height: 30px;
+  width: 100%;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr max-content max-content;
+  align-items: center;
+}
+
+.nav__link-logo{
+  display: grid;
+  justify-content: start;
+  align-content: center;
+}
+
+.nav__item-logo-image {
+  height: 50px;
+}
+
+.nav__link{
+  text-decoration: none;
+  float: right;
+  display: block;
+  color: var(--clr-white);
+  text-align: center;
+  padding: 0 0.5em 0 0.5em ;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.nav__link hover{
+  color: var(--clr-black);
+}
+
+/* Side Nav */
+
+.sidenav {
+  height: 100%;
+  width: 200px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  margin-top: 50px;
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: var(--clr-dark); /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+

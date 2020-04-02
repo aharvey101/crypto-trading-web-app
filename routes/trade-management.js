@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router({ mergeParams: true })
 const Trade = require('../models/trades');
-const User = require('../models/user')
+const middleware = require('../middleware/isLoggedIn.js')
 
 // Trade Management Page: shows all trades from that user
-router.get('/', isLoggedIn, (req, res) => {
+router.get('/', middleware.isLoggedIn, (req, res) => {
   // Get trades that belong to the user from the DB
-  Trade.find({ author: req.user._id }, function (err, usersTrades) {
+  Trade.find({ "author.id": req.user._id }, function (err, usersTrades) {
     if (err) {
       console.log(err)
     } else {
@@ -17,7 +17,7 @@ router.get('/', isLoggedIn, (req, res) => {
 
 
 //Show more info about a trade
-router.get('/:id', isLoggedIn, function (req, res) {
+router.get('/:id', middleware.isLoggedIn, function (req, res) {
   //find the Trade with the id
   Trade.findById(req.params.id).exec(function (err, foundTrade) {
     if (err) {
@@ -28,14 +28,4 @@ router.get('/:id', isLoggedIn, function (req, res) {
     }
   })
 })
-
-//Middleware
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  } else {
-    res.render('login')
-  }
-}
-
 module.exports = router;

@@ -1,4 +1,3 @@
-require('dotenv').config();
 
 const express = require('express'),
   app = express(),
@@ -9,6 +8,7 @@ const express = require('express'),
   methodOverride = require('method-override'),
   port = 3000,
   User = require('./models/user.js');
+require('dotenv').config();
 
 //Requiring Routes Files
 const homeRoutes = require('./routes/home'),
