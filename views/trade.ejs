@@ -2,7 +2,19 @@
 
 <div class="conatiner" style="color: black;">
   <h1><%= trade.pair %></h1>
-  <h3><%= trade.timeframe %></h3>
+  <h3><%= trade.tradeType %></h3>
+  <h3><%= trade.entryPrice %></h3>
+  <h3><%= trade.stopPrice %></h3>
+  <h3><%= trade.portfolioSize %></h3>
+  <h3><%= trade.riskPercentage %></h3>
+  <p><img src="<%= trade.entryShots.entryShot1%>" alt=""></p>
+  <p><img src="<%= trade.entryShots.entryShot2%>" alt=""></p>
+  <p><img src="<%= trade.entryShots.entryShot3%>" alt=""></p>
+  <p><img src="<%= trade.entryShots.entryShot4%>" alt=""></p>
+  <h3><%= trade.entryNotes %></h3>
+  <h3><%= trade.perfectEntry %></h3>
+  <p></p>
+
   <a href="/trade-management/<%= trade.id %>/edit"><button>Edit</button></a>
 </div>
 

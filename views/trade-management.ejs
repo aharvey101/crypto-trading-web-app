@@ -3,15 +3,13 @@
 <div class="container">
   <table class="table">
     <thead>
-
       <tr>
         <th scope="col">Entry Date</th>
-        <th scope="col">Trade Type</th>
         <th scope="col">Pair</th>
         <th scope="col">Risk %</th>
         <th scope="col">Entry ⏱</th>
+        <th scope="col">Trade Type</th>
         <th scope="col">Direction</th>
-        <th scope="col">Perfect Entry</th>
         <th scope="col">Perfect Entry</th>
         <th scope="col">View</th>
       </tr>
@@ -19,16 +17,14 @@
     <tbody>
       <% trades.forEach(trade => { %>
       <tr>
-        <th>
-        <td></td>
+        <td><%= trade.entryDate%></td>
         <td><%= trade.pair %></td>
-        <td></td>
+        <td><%= trade.riskPercentage%></td>
         <td><%= trade.timeframe %></td>
-        <td> </td>
+        <td><%= trade.tradeType %></td>
         <td></td>
-        <td></td>
+        <td><%= trade.perfectEntry %></td>
         <td><a href="/trade-management/<%= trade.id %>"><button>More Info</button></a></td>
-        </th>
       </tr>
       <% }) %>
     </tbody>

@@ -12,12 +12,18 @@
 
 #### Trade Management
 * [x] Fix trades not showing in the table (probably a route thing)
-* []
+* [] 
+
+#### Individual Trade
+[] Edit page
+  [] route
+  [] 
+[] Show trade
 
 #### Backend Css:
 
 [] Side pane nav
-[]
+[] make page a grid
 
 
 

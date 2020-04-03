@@ -12,7 +12,11 @@ router.get('/', function (req, res) {
 //Auth Routes
 /////////////
 router.post('/', (req, res) => {
-  let newUser = new User({ firstName: req.body.firstName, lastName: req.body.lastName, username: req.body.username });
+  let newUser = new User({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    username: req.body.username
+  });
   User.register(newUser, req.body.password, function (err, user) {
     if (err) {
       console.log(err)
