@@ -12,7 +12,7 @@ const tradeSchema = new mongoose.Schema({
     username: String,
   },
   timeframe: String,
-  entryDate: Date,
+  entryDate: String,
   tradeType: String,
   entryPrice: Number,
   stopPrice: Number,

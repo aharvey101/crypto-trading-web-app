@@ -2,6 +2,9 @@
 ## To Do :
 
 ### Backend:
+Refactor routes:
+[] Refactor the trade-input and trade-management route so that there is only 1 trade route, I did it wrong to begin with
+[] Refactor trade-input form names to be trade[input] so we can get rid of all those variables
 
 #### Trade Input Form
 *[] Style
@@ -15,8 +18,8 @@
 * [] 
 
 #### Individual Trade
-[] Edit page
-  [] route
+[x] Edit page
+  [x] route
   [] 
 [] Show trade
 

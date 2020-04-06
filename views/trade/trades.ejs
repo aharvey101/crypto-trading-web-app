@@ -1,4 +1,4 @@
-<%- include('./partials/backend/header') %>
+<%- include('../partials/backend/header') %>
 
 <div class="container">
   <table class="table">
@@ -24,14 +24,14 @@
         <td><%= trade.tradeType %></td>
         <td></td>
         <td><%= trade.perfectEntry %></td>
-        <td><a href="/trade-management/<%= trade.id %>"><button>More Info</button></a></td>
+        <td><a href="/trade/<%= trade.id %>"><button>More Info</button></a></td>
       </tr>
       <% }) %>
     </tbody>
   </table>
-  <a href="/trade-input"><button>New Trade</button></a>
+  <a href="/trade/new"><button>New Trade</button></a>
 </div>
 
 
 
-<%- include('./partials/backend/footer') %>
+<%- include('../partials/backend/footer') %>

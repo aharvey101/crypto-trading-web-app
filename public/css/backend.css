@@ -145,3 +145,7 @@ strong { font-weight: var(--fw-bold) }
   display: grid;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+

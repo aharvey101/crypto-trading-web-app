@@ -1,4 +1,4 @@
-<%- include('./partials/header') %>
+<%- include('../partials/header') %>
 
 <div class="conatiner" style="color: black;">
   <h1><%= trade.pair %></h1>
@@ -15,5 +15,7 @@
   <h3><%= trade.perfectEntry %></h3>
   <p></p>
 
+  <a href="/trade/<%= trade._id %>/edit"><button class="">Edit</button></a>
 
-  <%- include('./partials/footer') %>
+
+  <%- include('../partials/footer') %>

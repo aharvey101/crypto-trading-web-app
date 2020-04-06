@@ -12,8 +12,7 @@ require('dotenv').config();
 
 //Requiring Routes Files
 const homeRoutes = require('./routes/home'),
-  tradeManagementRoutes = require('./routes/trade-management'),
-  tradeInputRoutes = require('./routes/trade-input');
+  trades = require('./routes/trade')
 
 
 mongoose.connect(process.env.DB || 'mongodb://localhost/trading-app',
@@ -28,6 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.use(methodOverride('_method'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //Passport Configuration
 app.use(
@@ -51,8 +51,7 @@ app.use(function (req, res, next) {
 
 //Using Routes
 app.use('/', homeRoutes);
-app.use('/trade-management', tradeManagementRoutes);
-app.use('/trade-input', tradeInputRoutes);
+app.use('/trade/', trades);
 
 //Start Server
 app.listen(process.env.PORT || 3000, process.env.IP, function () {
