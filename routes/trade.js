@@ -9,18 +9,6 @@ router.get('/new', middleware.isLoggedIn, (req, res) => {
   res.render('trade/new')
 });
 
-// Trade Management Page: shows all trades from that user
-router.get('/', middleware.isLoggedIn, (req, res) => {
-  // Get trades that belong to the user from the DB
-  Trade.find({ "author.id": req.user._id }, function (err, usersTrades) {
-    if (err) {
-      console.log(err)
-    } else {
-      res.render('trade/trades', { trades: usersTrades })
-    }
-  })
-});
-
 //Making a new trade
 router.post('/', middleware.isLoggedIn, (req, res) => {
   //get data from form
@@ -55,11 +43,22 @@ router.post('/', middleware.isLoggedIn, (req, res) => {
       trade.entryDate = moment().format('L');
       //save changes
       trade.save();
-      res.redirect('trade/trades');
+      res.redirect('/trade');
     }
   })
 });
 
+// Trade Management Page: shows all trades from that user
+router.get('/', middleware.isLoggedIn, (req, res) => {
+  // Get trades that belong to the user from the DB
+  Trade.find({ "author.id": req.user._id }, function (err, usersTrades) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.render('trade/trades', { trades: usersTrades })
+    }
+  })
+});
 
 //Show more info about a trade
 router.get('/:id', middleware.isLoggedIn, function (req, res) {
@@ -93,5 +92,7 @@ router.put("/:id", middleware.isLoggedIn, function (req, res) {
     }
   });
 });
+
+//Delete Route
 
 module.exports = router;

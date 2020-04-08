@@ -19,12 +19,7 @@ const tradeSchema = new mongoose.Schema({
   invalidationPrice: Number,
   portfolioSize: Number,
   riskPercentage: Number,
-  entryShots: {
-    entryShot1: String,
-    entryShot2: String,
-    entryShot3: String,
-    entryShot4: String,
-  },
+  entryShots: [],
   exitShots: [],
   Checklist: {
     essential: {

@@ -1,21 +1,39 @@
 <%- include('../partials/header') %>
 
-<div class="conatiner" style="color: black;">
-  <h1><%= trade.pair %></h1>
-  <h3><%= trade.tradeType %></h3>
-  <h3><%= trade.entryPrice %></h3>
-  <h3><%= trade.stopPrice %></h3>
-  <h3><%= trade.portfolioSize %></h3>
-  <h3><%= trade.riskPercentage %></h3>
-  <p><img src="<%= trade.entryShots.entryShot1%>" alt=""></p>
-  <p><img src="<%= trade.entryShots.entryShot2%>" alt=""></p>
-  <p><img src="<%= trade.entryShots.entryShot3%>" alt=""></p>
-  <p><img src="<%= trade.entryShots.entryShot4%>" alt=""></p>
-  <h3><%= trade.entryNotes %></h3>
-  <h3><%= trade.perfectEntry %></h3>
-  <p></p>
+<div class="container" style="color: black;">
+  <div class="row">
+    <div class="col-sm-2"><h1><%= trade.pair %></h1></div>
+  </div>
+  <div class="col-sm-2"><h3><%= trade.tradeType %></h3></div>
+  <div class="col-sm-2"><h3><%= trade.entryPrice %></h3></div>
+  <div class="col-sm-2"><h3><%= trade.stopPrice %></h3></div>
+  <div class="col-sm-2"><h3><%= trade.portfolioSize %></h3></div>
+  <div class="col-sm-2"><h3><%= trade.riskPercentage %></h3></div>
+  <div class="row">
+    <%= trade.entryShots.forEach(element => { });
+    <div class="col-sm-4">
+      <img src="<%= trade.entryShots.entryShot1%>" alt="" />
+    </div>
+    <div class="col-sm-4">
+      <img src="<%= trade.entryShots.entryShot2%>" alt="" />
+    </div>
+    <div class="col-sm-4">
+      <img src="<%= trade.entryShots.entryShot3%>" alt="" />
+    </div>
+    <div class="col-sm-4">
+      <img src="<%= trade.entryShots.entryShot4%>" alt="" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <h3><%= trade.entryNotes %></h3>
+    </div>
+    <div class="col-sm-4">
+      <h3><%= trade.perfectEntry %></h3>
+    </div>
+  </div>
 
   <a href="/trade/<%= trade._id %>/edit"><button class="">Edit</button></a>
 
-
   <%- include('../partials/footer') %>
+</div>
