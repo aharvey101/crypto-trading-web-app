@@ -16,7 +16,7 @@ const homeRoutes = require('./routes/home'),
 
 
 mongoose.connect(process.env.DB || 'mongodb://localhost/trading-app',
-  { useUnifiedTopology: true, useNewUrlParser: true })
+  { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false })
   .then(() => console.log('DB Connected'))
   .catch(err => {
     console.log(`DB Connection Error: ${err.message}`)
