@@ -2,9 +2,15 @@
 
 ### Backend:
 
-Refactor routes:
-[] Refactor the trade-input and trade-management route so that there is only 1 trade route, I did it wrong to begin with
-[] Refactor trade-input form names to be trade[input] so we can get rid of all those variables
+[]Moment js
+[] Refactor routes
+--[x]show trades
+--[x]view individual trade
+--[x] New trade
+--[x]Update new trade route to include 'trade[input]'
+--[x]edit trade
+--[] another trhing
+--
 
 #### Trade Input Form
 
@@ -12,7 +18,7 @@ _[] Style
 _[] fix date input problem
 _[] update route to take all information to the DB
 _[] make form output a string for the script to run
-\*[]
+[]
 
 #### Trade Management
 
@@ -21,13 +27,25 @@ _[] make form output a string for the script to run
 
 #### Individual Trade
 
+<<<<<<< HEAD
 [x] Edit page
 [x] route
 [x]Show trade
+=======
+[] Edit page
+[] route
+[][] Show trade
+
+> > > > > > > routesRefactor
 
 #### Backend Css:
 
 [] Side pane nav
 [] make page a grid
+<<<<<<< HEAD
 
 ### Fix all minor issues
+
+=======
+
+> > > > > > > routesRefactor

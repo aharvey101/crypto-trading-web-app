@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
+var useless = 0;
 
 //Home Page
 router.get('/', function (req, res) {
@@ -23,7 +24,7 @@ router.post('/', (req, res) => {
       return res.render("home")
     }
     passport.authenticate('local')(req, res, function () {
-      res.redirect("/trade/trades")
+      res.redirect("/trades")
     })
   })
 });
@@ -35,8 +36,7 @@ router.get('/login', (req, res) => {
 //handling Login Logic
 router.post('/login', passport.authenticate('local',
   {
-    successRedirect: '/trade',
-    failureFlash: true,
+    successRedirect: '/trades',
     failureRedirect: "/login"
   }));
 
