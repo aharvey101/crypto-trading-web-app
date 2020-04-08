@@ -1,15 +1,24 @@
 <%- include('./partials/header') %>
 
 <body>
-
-  <form action="/login" method="POST" class="form">
-    <h3>Sign in</h3>
-    <label for="username">Username(email)</label>
-    <input type="text" name="username" placeholder="your email">
-    <label for="password">Password</label>
-    <input type="password" name="password" placeholder="your password">
-    <input type="submit" value="Login">
-  </form>
-
+  <div class="container">
+    <form action="/login" method="POST" class="form">
+      <div class="row">
+        <div class="col-5"><h3>Sign in</h3></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <label for="username">Username(email)</label>
+          <input type="text" name="username" placeholder="your email" />
+        </div>
+        <div class="col-sm-4">
+          <label for="password">Password</label>
+          <input type="password" name="password" placeholder="your password" />
+        </div>
+      </div>
+      <input class="btn btn-primary" type="submit" value="Login" />
+    </form>
+  </div>
 
   <%- include('./partials/footer') %>
+</body>

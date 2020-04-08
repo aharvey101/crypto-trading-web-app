@@ -23,7 +23,7 @@ router.post('/', (req, res) => {
       return res.render("home")
     }
     passport.authenticate('local')(req, res, function () {
-      res.redirect("/trade-management")
+      res.redirect("/trades")
     })
   })
 });
@@ -35,7 +35,7 @@ router.get('/login', (req, res) => {
 //handling Login Logic
 router.post('/login', passport.authenticate('local',
   {
-    successRedirect: '/trade-management',
+    successRedirect: '/trades',
     failureRedirect: "/login"
   }));
 

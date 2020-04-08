@@ -12,8 +12,7 @@ require('dotenv').config();
 
 //Requiring Routes Files
 const homeRoutes = require('./routes/home'),
-  tradeManagementRoutes = require('./routes/trade-management'),
-  tradeInputRoutes = require('./routes/trade-input');
+  tradesRoute = require('./routes/trades')
 
 
 mongoose.connect(process.env.DB || 'mongodb://localhost/trading-app',
@@ -51,8 +50,8 @@ app.use(function (req, res, next) {
 
 //Using Routes
 app.use('/', homeRoutes);
-app.use('/trade-management', tradeManagementRoutes);
-app.use('/trade-input', tradeInputRoutes);
+app.use('/trades', tradesRoute);
+
 
 //Start Server
 app.listen(process.env.PORT || 3000, process.env.IP, function () {

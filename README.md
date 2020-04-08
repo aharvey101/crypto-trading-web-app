@@ -4,11 +4,12 @@
 
 []Moment js
 [] Refactor routes
---[]show trades
---[]view individual trade
---[]edit trade
+--[x]show trades
+--[x]view individual trade
+--[x] New trade
+--[x]Update new trade route to include 'trade[input]'
+--[x]edit trade
 --[]
---[] New trade
 --
 
 #### Trade Input Form
