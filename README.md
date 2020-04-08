@@ -18,7 +18,7 @@ _[] Style
 _[] fix date input problem
 _[] update route to take all information to the DB
 _[] make form output a string for the script to run
-\*[]
+[]
 
 #### Trade Management
 
