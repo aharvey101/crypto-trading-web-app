@@ -9,7 +9,7 @@
 --[x] New trade
 --[x]Update new trade route to include 'trade[input]'
 --[x]edit trade
---[]
+--[] another trhing
 --
 
 #### Trade Input Form
