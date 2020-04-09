@@ -22,27 +22,8 @@ const tradeSchema = new mongoose.Schema({
   entryShots: [],
   exitShots: [],
   Checklist: {
-    essential: {
-      factor1: Boolean,
-      factor2: Boolean,
-      factor3: Boolean,
-      factor4: Boolean,
-      factor5: Boolean,
-      factor6: Boolean,
-      factor7: Boolean,
-      factor8: Boolean
-    },
-    bonus: {
-      factor1: Boolean,
-      factor2: Boolean,
-      factor3: Boolean,
-      factor4: Boolean,
-      factor5: Boolean,
-      factor6: Boolean,
-      factor7: Boolean,
-      factor8: Boolean,
-      factor9: Boolean,
-    }
+    essential: {},
+    bonus: {}
   },
   entryNotes: String,
   perfectEntry: String,

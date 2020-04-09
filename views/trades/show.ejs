@@ -7,10 +7,9 @@
   <h3><%= trade.stopPrice %></h3>
   <h3><%= trade.portfolioSize %></h3>
   <h3><%= trade.riskPercentage %></h3>
-  <p><img src="<%= trade.entryShots.entryShot1%>" alt="" /></p>
-  <p><img src="<%= trade.entryShots.entryShot2%>" alt="" /></p>
-  <p><img src="<%= trade.entryShots.entryShot3%>" alt="" /></p>
-  <p><img src="<%= trade.entryShots.entryShot4%>" alt="" /></p>
+  <% trade.entryShots.forEach(img => { %>
+  <p><img src="<%= img %>" alt="" /></p>
+  <% }); %>
   <h3><%= trade.entryNotes %></h3>
   <h3><%= trade.perfectEntry %></h3>
   <p></p>

@@ -19,26 +19,19 @@ router.get('/', middleware.isLoggedIn, (req, res) => {
 //Create - New Trade Form
 router.post('/', (req, res) => {
   //get data from form
-  let
-    entryShots = {
-      entryShot1: req.body.trade.entryShot1,
-      entryShot2: req.body.trade.entryShot2,
-      entryShot3: req.body.trade.entryShot3,
-      entryShot4: req.body.trade.entryShot4
-    },
-    newTrade = {
-      pair: req.body.trade.pair,
-      timeframe: req.body.trade.timeframe,
-      tradeType: req.body.trade.tradeType,
-      entryPrice: req.body.trade.entryPrice,
-      stopPrice: req.body.trade.stopPrice,
-      portfolioSize: req.body.trade.portfolioSize,
-      riskPercentage: req.body.trade.riskPercentage,
-      entryShots: entryShots,
-      checklist: req.body.trade.checklist,
-      entryNotes: req.body.trade.entryNotes,
-      perfectEntry: req.body.trade.perfectEntry,
-    }
+  let newTrade = {
+    pair: req.body.trade.pair,
+    timeframe: req.body.trade.timeframe,
+    tradeType: req.body.trade.tradeType,
+    entryPrice: req.body.trade.entryPrice,
+    stopPrice: req.body.trade.stopPrice,
+    portfolioSize: req.body.trade.portfolioSize,
+    riskPercentage: req.body.trade.riskPercentage,
+    entryShots: req.body.trade.entryShots,
+    checklist: req.body.trade.checklist,
+    entryNotes: req.body.trade.entryNotes,
+    perfectEntry: req.body.trade.perfectEntry,
+  }
   //Create a new trade and save to database
   Trade.create(newTrade, function (err, trade) {
     if (err) {
@@ -87,6 +80,7 @@ router.get('/:id/edit', middleware.isLoggedIn, (req, res) => {
 
 // UPDATE CAMPGROUND ROUTE
 router.put("/:id", middleware.isLoggedIn, function (req, res) {
+  //add the images to the trade object
   // find and update the correct campground
   Trade.findByIdAndUpdate(req.params.id, req.body.trade, function (err, updateTrade) {
     if (err) {

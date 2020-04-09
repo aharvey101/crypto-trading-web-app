@@ -38,11 +38,9 @@
     </div>
     <div class="trade-input-form-control">
       <label for="entrySnapShot1">Entry Snap Shots (3 minumum)</label>
-      <input class="form-control" type="text" name="trade[entryShot1]" id="" value="<%= trade.entryShots.entryShot1%>">
-      <input class="form-control" type="text" name="trade[entryShot2]" id="" value="<%= trade.entryShots.entryShot2 %>">
-      <input class="form-control" type="text" name="trade[entryShot3]" id="" value="<%= trade.entryShots.entryShot3 %>">
-      <input class="form-control" type="text" name="trade[entryShot4]" id="" value="<%= trade.entryShots.entryShot4 %>">
-      <input class="form-control" type="text" name="trade[entryShot5]" id="" value="<%= trade.entryShots.entryShot5 %>">
+      <% trade.entryShots.forEach(shot => { %>
+        <input class="form-control" type="text" name="trade[entryShots]" id="" value="<%= shot %>">
+      <% }); %>
     </div>
     <div class="trade-input-form-control">
       <label for="entryNotes">Entry Notes</label>
