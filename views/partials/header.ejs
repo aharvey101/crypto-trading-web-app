@@ -14,24 +14,27 @@
   </head>
   <!-- Nav Bar -->
   <section id="nav">
-    <div class="nav">
-      <a class="nav__link-logo" href="/"
-        ><img
-          class="nav__item-logo-image"
-          src="https://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png"
-          alt="placeholder"
-      /></a>
-
-      <% if(!currentUser) { %>
-      <a class="nav__link" href="/login">Login</a>
-      <% } else { %>
-      <a href="user/profile" class="nav-link"
-        >Signed in as <%= currentUser.username %></a
-      >
-      <a class="nav-link" href="/trade-management"></a>
-      <a class="nav__link" href="/report">Dashboard</a>
-      <a class="nav__link" href="/logout">Logout</a>
-      <%} %>
-    </div>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg bg-dark" style="color: white;">
+      <a class="navbar-brand" href="/">Trading App</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+        <ul class="navbar-nav ml-auto" >
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/trade-management">Trade Management</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/report">Report</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </section>
 </html>

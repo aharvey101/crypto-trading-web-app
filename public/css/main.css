@@ -66,37 +66,11 @@ strong {
 
 #nav {
   position: sticky;
-}
-
-.nav {
   background-color: var(--clr-dark);
-  display: grid;
-  min-height: 30px;
-  width: 100%;
-  grid-auto-flow: column;
-  grid-template-columns: 1fr max-content max-content;
-  align-items: center;
 }
 
-.nav__link-logo {
-  display: grid;
-  justify-content: start;
-  align-content: center;
-}
-
-.nav__item-logo-image {
-  height: 50px;
-}
-
-.nav__link {
-  text-decoration: none;
-  float: right;
-  display: block;
+#nav a {
   color: var(--clr-white);
-  text-align: center;
-  padding: 0 0.5em 0 0.5em;
-  text-decoration: none;
-  font-size: 1.5rem;
 }
 
 /* Main Section */
