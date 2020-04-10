@@ -10,7 +10,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/main.css" />
-    <title>Home</title>
+    <title>Trading-app</title>
   </head>
   <!-- Nav Bar -->
   <section id="nav">
@@ -25,8 +25,11 @@
       <% if(!currentUser) { %>
       <a class="nav__link" href="/login">Login</a>
       <% } else { %>
-      <a href="#" class="nav__link">Signed in as <%= currentUser.username %></a>
-      <a class="nav__link" href="/trades">Dashboard</a>
+      <a href="user/profile" class="nav-link"
+        >Signed in as <%= currentUser.username %></a
+      >
+      <a class="nav-link" href="/trade-management"></a>
+      <a class="nav__link" href="/report">Dashboard</a>
       <a class="nav__link" href="/logout">Logout</a>
       <%} %>
     </div>

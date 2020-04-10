@@ -30,7 +30,8 @@ const tradeSchema = new mongoose.Schema({
   perfectManagement: String,
   tradeTaken: Boolean,
   scaledOut: Boolean,
-  stoppedOut: Boolean
+  stoppedOut: Boolean,
+  status: String,
 })
 
 

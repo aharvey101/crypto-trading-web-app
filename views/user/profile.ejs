@@ -1,0 +1,28 @@
+<%- include('../partials/backend/header') %>
+<div class="container mx-auto mt-5 rounded container-profile">
+  <div class="row">
+    <div class="col-5 mx-auto m-3">
+      <h1><%= currentUser.firstName + ' ' + currentUser.lastName %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col m-3">
+      <h4>Member Since:</h4>
+    </div>
+    <div class="col m-3">
+      <h4>
+        <%= currentUser.joinDate %>
+      </h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col m-3">
+      <h4>Username:</h4>
+    </div>
+    <div class="col m-3">
+      <h4><%= currentUser.username %></h4>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/backend/footer') %>

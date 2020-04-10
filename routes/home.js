@@ -1,8 +1,8 @@
-var express = require("express");
-var router = express.Router();
-var passport = require("passport");
-var User = require("../models/user");
-var useless = 0;
+const express = require("express");
+const router = express.Router();
+const passport = require("passport");
+const User = require("../models/user");
+const moment = require('moment')
 
 //Home Page
 router.get('/', function (req, res) {
@@ -16,7 +16,8 @@ router.post('/', (req, res) => {
   let newUser = new User({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
-    username: req.body.username
+    username: req.body.username,
+    joinDate: moment().format('L')
   });
   User.register(newUser, req.body.password, function (err, user) {
     if (err) {
@@ -24,7 +25,7 @@ router.post('/', (req, res) => {
       return res.render("home")
     }
     passport.authenticate('local')(req, res, function () {
-      res.redirect("/trades")
+      res.redirect("/reports")
     })
   })
 });
@@ -36,7 +37,7 @@ router.get('/login', (req, res) => {
 //handling Login Logic
 router.post('/login', passport.authenticate('local',
   {
-    successRedirect: '/trades',
+    successRedirect: '/trade-management',
     failureRedirect: "/login"
   }));
 

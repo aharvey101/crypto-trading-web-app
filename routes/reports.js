@@ -11,7 +11,7 @@ router.get('/', middleware.isLoggedIn, (req, res) => {
     if (err) {
       console.log(err)
     } else {
-      res.render('trades/index', { trades: usersTrades })
+      res.render('report/index', { trades: usersTrades })
     }
   })
 });
@@ -19,19 +19,19 @@ router.get('/', middleware.isLoggedIn, (req, res) => {
 //Create - New Trade Form
 router.post('/', (req, res) => {
   //get data from form
-  let newTrade = {
-    pair: req.body.trade.pair,
-    timeframe: req.body.trade.timeframe,
-    tradeType: req.body.trade.tradeType,
-    entryPrice: req.body.trade.entryPrice,
-    stopPrice: req.body.trade.stopPrice,
-    portfolioSize: req.body.trade.portfolioSize,
-    riskPercentage: req.body.trade.riskPercentage,
-    entryShots: req.body.trade.entryShots,
-    checklist: req.body.trade.checklist,
-    entryNotes: req.body.trade.entryNotes,
-    perfectEntry: req.body.trade.perfectEntry,
-  }
+  const newTrade = {
+    pair,
+    timeframe,
+    tradeType,
+    entryPrice,
+    stopPrice,
+    portfolioSize,
+    riskPercentage,
+    entryShots,
+    checklist,
+    entryNotes,
+    perfectEntry
+  } = req.body.trade
   //Create a new trade and save to database
   Trade.create(newTrade, function (err, trade) {
     if (err) {
@@ -44,14 +44,14 @@ router.post('/', (req, res) => {
       trade.entryDate = moment().format('L');
       //save changes
       trade.save();
-      res.redirect('/trades');
+      res.redirect('/report');
     }
   })
 });
 
 //Trade input page
 router.get('/new', middleware.isLoggedIn, (req, res) => {
-  res.render('trades/new')
+  res.render('report/new')
 });
 
 //Show more info about a trade
@@ -62,7 +62,7 @@ router.get('/:id', middleware.isLoggedIn, function (req, res) {
       console.log(err)
     } else {
       //render show template with that Trade
-      res.render('trades/show', { trade: foundTrade })
+      res.render('report/show', { trade: foundTrade })
     }
   })
 })
@@ -73,24 +73,26 @@ router.get('/:id/edit', middleware.isLoggedIn, (req, res) => {
     if (err) {
       console.log(err)
     } else {
-      res.render('trades/edit', { trade: foundTrade })
+      res.render('report/edit', { trade: foundTrade })
     }
   })
 });
 
-// UPDATE CAMPGROUND ROUTE
+// UPDATE: Trade ROUTE
 router.put("/:id", middleware.isLoggedIn, function (req, res) {
   //add the images to the trade object
   // find and update the correct campground
   Trade.findByIdAndUpdate(req.params.id, req.body.trade, function (err, updateTrade) {
     if (err) {
-      res.redirect("/trades/index");
+      res.redirect("/report/index");
     } else {
       //redirect somewhere(show page)
-      res.redirect("/trades/" + req.params.id);
+      res.redirect("/report/" + req.params.id);
     }
   });
 });
+
+
 
 
 module.exports = router;

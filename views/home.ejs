@@ -2,53 +2,55 @@
 
 <body>
   <!-- Main Section -->
-  <section class="hero">
-    <div class="hero__container">
-      <div class="hero__signup-container">
-        <form action="/" method="POST" class="form">
-          <div class="hero__signup-title h2">Signup</div>
-          <div class="form-group hero_signup-form-group">
-            <label for="firstName">First Name</label>
-            <input
-              class="form-control"
-              type="text"
-              name="firstName"
-              placeholder="Jack"
-            />
+  <section class="">
+    <div class="container container-signup mx-auto mt-5 rounded p-5">
+      <form action="/" method="POST" class="form">
+        <div class="row">
+          <div class="col mx-auto text-center">
+            <h1>Signup</h1>
           </div>
-          <div class="form-group hero_signup-form-group">
-            <label for="lastName">Last Name</label>
-            <input
-              class="form-control"
-              type="text"
-              name="lastName"
-              placeholder="Rojers"
-            />
-          </div>
-          <div class="form-group hero_signup-form-group">
-            <label for="username">Email</label>
-            <input
-              class="form-control"
-              type="text"
-              name="username"
-              placeholder="alex@up.me"
-            />
-          </div>
-          <div class="form-group hero_signup-form-group">
-            <label for="password">Password</label>
-            <input
-              class="form-control"
-              type="password"
-              name="password"
-              id=""
-              placeholder="password"
-            />
-          </div>
-          <div class="hero_signup-form-group">
-            <button class="">Signup</button>
-          </div>
-        </form>
-      </div>
+        </div>
+        <div class="col mx-auto p-2">
+          <label for="firstName">First Name</label>
+          <input
+            class="form-control"
+            type="text"
+            name="firstName"
+            placeholder="Jack"
+          />
+        </div>
+        <div class="col-sm mx-auto p-2">
+          <label for="lastName">Last Name</label>
+          <input
+            class="form-control"
+            type="text"
+            name="lastName"
+            placeholder="Rojers"
+          />
+        </div>
+        <div class="col-sm mx-auto p-2">
+          <label for="username">Email</label>
+          <input
+            class="form-control"
+            type="text"
+            name="username"
+            placeholder="alex@up.me"
+          />
+        </div>
+        <div class="col-sm mx-auto p-2">
+          <label for="password">Password</label>
+          <input
+            class="form-control"
+            type="password"
+            name="password"
+            id=""
+            placeholder="password"
+          />
+        </div>
+        <div class="col mx-auto m-3 p-2">
+          <button class="btn btn-primary">Signup</button>
+        </div>
+      </form>
     </div>
   </section>
   <%- include('./partials/footer') %>

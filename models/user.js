@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
   lastName: String,
   username: String,
   password: String,
+  joinDate: String,
 })
 
 userSchema.plugin(passportLocalMongoose)

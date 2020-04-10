@@ -4,7 +4,7 @@ const express = require('express'),
   bodyParser = require('body-parser'),
   mongoose = require('mongoose'),
   passport = require('passport'),
-  localStrategy = require('passport-local'),
+  localStrategy = require('passport-local').Strategy,
   methodOverride = require('method-override'),
   port = 3000,
   User = require('./models/user.js');
@@ -12,7 +12,9 @@ require('dotenv').config();
 
 //Requiring Routes Files
 const homeRoutes = require('./routes/home'),
-  tradesRoute = require('./routes/trades')
+  reportRoute = require('./routes/reports'),
+  tradeManagementRoute = require('./routes/trade-management'),
+  userRoute = require('./routes/User')
 
 
 mongoose.connect(process.env.DB || 'mongodb://localhost/trading-app',
@@ -51,7 +53,9 @@ app.use(function (req, res, next) {
 
 //Using Routes
 app.use('/', homeRoutes);
-app.use('/trades', tradesRoute);
+app.use('/report', reportRoute);
+app.use('/user', userRoute)
+app.use('/trade-management', tradeManagementRoute);
 
 
 //Start Server

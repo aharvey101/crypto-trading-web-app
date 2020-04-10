@@ -18,21 +18,22 @@
       <% trades.forEach(trade => { %>
       <tr>
         <td><%= trade.entryDate%></td>
-        <td><%= trade.entryDate%></td>
-        <td><%= trade.pair %></td>
+        <td><%= trade.pair%></td>
         <td><%= trade.riskPercentage%></td>
         <td><%= trade.timeframe %></td>
         <td><%= trade.tradeType %></td>
         <td></td>
         <td><%= trade.perfectEntry %></td>
         <td>
-          <a href="/trades/<%= trade.id %>"><button>More Info</button></a>
+          <a href="/trades/<%= trade.id %>"
+            ><button class="btn btn-primary">More Info</button></a
+          >
         </td>
       </tr>
       <% }) %>
     </tbody>
   </table>
-  <a href="/trades/new"><button>New Trade</button></a>
+  <a href="/trades/new"><button class="btn btn-primary">New Trade</button></a>
 </div>
 
 <%- include('../partials/backend/footer') %>
