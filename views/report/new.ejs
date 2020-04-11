@@ -1,15 +1,27 @@
 <%- include('../partials/backend/header')%>
-
-<div class="trade-input-container">
-  <form action="/trades" method='POST' class="trade-input-form ">
+<script>
+  function outputString() {
+    const portfolioSize = document.forms[0].elements[5].value;
+    const entryPrice = document.forms[0].elements[3].value;
+    const stopPrice = document.forms[0].elements[4].value;
+    const pair = document.forms[0].elements[0].value;
+    const portfolioRisk = document.forms[0].elements[6].value / 100;
+    const tradeRisk = 1 - (stopPrice / entryPrice);
+    const amount = (portfolioSize * portfolioRisk) / tradeRisk;
+    const tradeOutputString = ` -p ${pair} -a ${amount} -e ${entryPrice} -s ${stopPrice} `;
+    console.log(tradeOutputString);
+  }
+</script>
+<div class="container container-profile">
+  <form action="/trades" method="POST" class="trade-input-form">
     <div class="hero__signup-title h2">Trade Input</div>
     <div class="trade-input-form-control">
       <label for="pair">Pair</label>
-      <input class="form-control" type="text" name="trade[pair]" placeholder="BTCUSD">
+      <input id="pair" class="form-control" type="text" name="trade[pair]" placeholder="BTCUSD" />
     </div>
     <div class="trade-input-form-control">
       <label for="timeframe">Timeframe</label>
-      <input class="form-control" type="text" name="trade[timeframe]" id="" placeholder="8hr">
+      <input class="form-control" type="text" name="trade[timeframe]" id="" placeholder="8hr" />
     </div>
     <div class="trade-input-form-control">
       <label for="tradeType">Trade Type</label>
@@ -22,27 +34,33 @@
     </div>
     <div class="trade-input-form-control">
       <label for="entryPrice">Entry Price</label>
-      <input class="form-control" type="number" name="trade[entryPrice]" id="" placeholder="$100">
+      <input class="form-control" type="number" name="trade[entryPrice]" id="" placeholder="$100" />
     </div>
     <div class="trade-input-form-control">
       <label for="stopPrice">Stop Price</label>
-      <input class="form-control" type="number" name="trade[stopPrice]" id="" placeholder="$95">
+      <input class="form-control" type="number" name="trade[stopPrice]" id="" placeholder="$95" />
     </div>
     <div class="trade-input-form-control">
       <label for="portfolioSize">Portfolio Size (USD)</label>
-      <input class="form-control" type="number" name="trade[invalidationPrice]" id="" placeholder="$1000">
+      <input id="portfolioSize" class="form-control" type="number" name="trade[invalidationPrice]" id=""
+        placeholder="$1000" />
     </div>
     <div class="trade-input-form-control">
       <label for="riskPercentage">Risk Percentage</label>
-      <input class="form-control" type="number" min name="trade[riskPercentage]" id="" placeholder="1%">
+      <input class="form-control" type="number" min name="trade[riskPercentage]" id="" placeholder="1%" />
     </div>
     <div class="trade-input-form-control">
       <label for="entrySnapShot1">Entry Snap Shots (3 minumum)</label>
-      <input class="form-control" type="text" name="trade[entryShots]" id="" placeholder="http://yoururl.com/someimage.jpg">
-      <input class="form-control" type="text" name="trade[entryShots]" id="" placeholder="http://yoururl.com/someimage.jpg">
-      <input class="form-control" type="text" name="trade[entryShots]" id="" placeholder="http://yoururl.com/someimage.jpg">
-      <input class="form-control" type="text" name="trade[entryShots]" id="" placeholder="http://yoururl.com/someimage.jpg">
-      <input class="form-control" type="text" name="trade[entryShots]" id="" placeholder="http://yoururl.com/someimage.jpg">
+      <input class="form-control" type="text" name="trade[entryShots]" id=""
+        placeholder="http://yoururl.com/someimage.jpg" />
+      <input class="form-control" type="text" name="trade[entryShots]" id=""
+        placeholder="http://yoururl.com/someimage.jpg" />
+      <input class="form-control" type="text" name="trade[entryShots]" id=""
+        placeholder="http://yoururl.com/someimage.jpg" />
+      <input class="form-control" type="text" name="trade[entryShots]" id=""
+        placeholder="http://yoururl.com/someimage.jpg" />
+      <input class="form-control" type="text" name="trade[entryShots]" id=""
+        placeholder="http://yoururl.com/someimage.jpg" />
     </div>
     <div class="trade-input-form-control">
       <label for="entryNotes">Entry Notes</label>
@@ -50,11 +68,18 @@
     </div>
     <div class="trade-input-form-control">
       <label for="perfectEntry">Perfect Entry</label>
-      <input class="form-control" type="checkbox" value="true" name="trade[perfectEntry]" id="" placeholder="$96">
+      <input class="form-control" type="checkbox" value="true" name="trade[perfectEntry]" id="" placeholder="$96" />
     </div>
 
     <div class="trade-input-form-control">
-      <button class="">submit</button>
+      <button class="btn btn-primary" onclick="outputString()">submit</button>
+    </div>
   </form>
+  <div class="trade-input-form-control">
+    <button class="btn btn-primary mt-2" onclick="outputString()">
+      Generate String
+    </button>
+  </div>
 </div>
+
 <%- include('../partials/footer')%>

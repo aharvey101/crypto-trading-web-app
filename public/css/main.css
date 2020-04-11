@@ -76,7 +76,7 @@ strong {
 /* Main Section */
 
 .container-signup {
-  width: max-content;
+  width: 25rem;
   background-color: var(--clr-dark);
   color: white;
 }

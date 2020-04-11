@@ -83,3 +83,9 @@ strong {
   background-color: var(--clr-dark);
   color: white;
 }
+
+.container-signup {
+  width: max-content;
+  background-color: var(--clr-dark);
+  color: white;
+}
