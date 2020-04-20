@@ -28,7 +28,6 @@ router.post('/', (req, res) => {
     portfolioSize,
     riskPercentage,
     entryShots,
-    checklist,
     entryNotes,
     perfectEntry
   } = req.body.trade
@@ -81,12 +80,17 @@ router.get('/:id/edit', middleware.isLoggedIn, (req, res) => {
 // UPDATE: Trade ROUTE
 router.put("/:id", middleware.isLoggedIn, function (req, res) {
   //add the images to the trade object
-  // find and update the correct campground
+  const newImages = [
+    exitShots
+  ] = req.body.trade["exitShots"]
+  // find and update the correct trade
   Trade.findByIdAndUpdate(req.params.id, req.body.trade, function (err, updateTrade) {
     if (err) {
       res.redirect("/report/index");
     } else {
       //redirect somewhere(show page)
+      updateTrade.exitShots = newImages;
+      updateTrade.save()
       res.redirect("/report/" + req.params.id);
     }
   });

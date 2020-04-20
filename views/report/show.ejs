@@ -1,19 +1,51 @@
 <%- include('../partials/header') %>
 
-<div class="container" style="color: black;">
-  <h1><%= trade.pair %></h1>
-  <h3><%= trade.tradeType %></h3>
-  <h3><%= trade.entryPrice %></h3>
-  <h3><%= trade.stopPrice %></h3>
-  <h3><%= trade.portfolioSize %></h3>
-  <h3><%= trade.riskPercentage %></h3>
-  <% trade.entryShots.forEach(img => { %>
-  <p><img src="<%= img %>" alt="" /></p>
-  <% }); %>
-  <h3><%= trade.entryNotes %></h3>
-  <h3><%= trade.perfectEntry %></h3>
-  <p></p>
-  <a href="/report/<%= trade.id %>/edit"><button class="btn btn-primary">Edit</button></a>
+<div class="container mx-auto rounded mt-5">
+  <div class="col-5 mx-auto p-3 text-center">
+    <h1><%= `${trade.timeframe} ${trade.pair} ${trade.tradeType}`%></h1>
+  </div>
+  <div class="col-5 mx-auto p-3 text-center">
+    <h2>Entry Shots</h2>
+  </div>
+  <div class="row d-flex justify-content-around">
+    <% trade.entryShots.forEach(img => { %>
+    <div class="col-3 m-1">
+      <img class="img-thumbnail" src="<%= img %>" alt="" />
+    </div>
+    <% }); %>
+  </div>
+  <div class="col-5 mx-auto p-3 text-center">
+    <h2>Exit Shots</h2>
+  </div>
+  <div class="row d-flex justify-content-around">
+    <% trade.exitShots.forEach(img => { %>
+    <div class=" col-3">
+      <img class="img-thumbnail" src="<%= img %>" alt="" />
+
+    </div>
+    <% }); %>
+  </div>
+
+  <div class="row d-flex mt-5">
+    <div class="col">
+      <h3>Entry Price:</h3>
+      <h3>Stop Price:</h3>
+      <h3>Portfolio Size:</h3>
+      <h3>Risk Percentage:</h3>
+      <h3>Perfect Entry:</h3>
+      <h3>Entry Notes:</h3>
+    </div>
+    <div class="col text-center">
+      <h4><%= trade.entryPrice %></h4>
+      <h4><%= trade.stopPrice %></h4>
+      <h4><%= trade.portfolioSize %></h4>
+      <h4><%= trade.riskPercentage %></h4>
+      <h4><%= trade.perfectEntry %></h4>
+      <h4><%= trade.entryNotes %></h4>
+    </div>
+  </div>
+
+  <a href="/report/<%= trade.id %>/edit"><button class="btn btn-primary mb-3">Edit</button></a>
 </div>
 
 <%- include('../partials/footer') %>

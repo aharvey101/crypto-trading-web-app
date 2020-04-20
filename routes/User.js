@@ -5,7 +5,7 @@ const middleware = require('../middleware/isLoggedIn.js')
 const moment = require('moment')
 const user = require('../models/user')
 
-router.get('/profile', middleware.isLoggedIn, function (req, res) {
+router.get('/', middleware.isLoggedIn, function (req, res) {
   res.render('user/profile')
 })
 

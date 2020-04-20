@@ -1,60 +1,70 @@
 <%- include('../partials/backend/header') %>
 
-<div class="trade-input-container">
-  <form action="/report/<%= trade._id %>?_method=PUT" method='POST' class="trade-input-form ">
-    <div class="hero__signup-title h2">Trade Input</div>
-    <div class="trade-input-form-control">
+<div class="container rounded mt-5 col-5">
+  <form action="/report/<%= trade._id %>?_method=PUT" method='POST' class="">
+    <div class="text-center pt-2">
+      <h2>Edit Trade</h2>
+    </div>
+    <div class="form-group">
       <label for="pair">Pair</label>
       <input class="form-control" type="text" name="trade[pair]" value="<%= trade.pair %>">
     </div>
-    <div class="trade-input-form-control">
+    <div class="form-group">
       <label for="timeframe">Timeframe</label>
       <input class="form-control" type="text" name="trade[timeframe]" id="" value="<%= trade.timframe %>">
     </div>
-    <div class="trade-input-form-control">
+    <div class="form-group">
       <label for="tradeType">Trade Type</label>
-      <select required="true" name="trade[tradeType]" id="tradeType">
+      <select class="form-control" required="true" name="trade[tradeType]" id="tradeType">
         <option value="">--Please Choose An Option--</option>
         <option value="Cradle">Cradle</option>
         <option value="Breakout">Breakout</option>
         <option value="Fibonacci Booster">Fibonacci Booster</option>
       </select>
     </div>
-    <div class="trade-input-form-control">
+    <div class="form-group">
       <label for="entryPrice">Entry Price</label>
       <input class="form-control" type="number" name="trade[entryPrice]" id="" value="<%= trade.entryPrice %>">
     </div>
-    <div class="trade-input-form-control">
+    <div class="form-group">
       <label for="stopPrice">Stop Price</label>
       <input class="form-control" type="number" name="trade[stopPrice]" id="" value="<%= trade.stopPrice %>">
     </div>
-    <div class="trade-input-form-control">
+    <div class="form-group">
       <label for="portfolioSize">Portfolio Size (USD)</label>
       <input class="form-control" type="number" name="trade[invalidationPrice]" id=""
         value="<%= trade.invalidationPrice %>">
     </div>
-    <div class="trade-input-form-control">
+    <div class="form-group">
       <label for="riskPercentage">Risk Percentage</label>
       <input class="form-control" type="number" min name="trade[riskPercentage]" id=""
         value="<%= trade.riskPercentage %>">
     </div>
-    <div class="trade-input-form-control">
+    <div class="form-group">
       <label for="entrySnapShot1">Entry Snap Shots (3 minumum)</label>
       <% trade.entryShots.forEach(shot => { %>
-      <input class="form-control" type="text" name="trade[entryShots]" id="" value="<%= shot %>">
+      <input class="form-control" type="text" name="trade[entryShots]" id="entrySnapShot1" value="<%= shot %>">
       <% }); %>
     </div>
-    <div class="trade-input-form-control">
-      <label for="entryNotes">Entry Notes</label>
-      <textarea name="trade[entryNotes]" id="entryNotes" cols="30" rows="10"><%= trade.entryNotes%></textarea>
+    <div class="form-group">
+      <label for="entrySnapShot1">Exit</label>
+      <input class="form-control" type="text" name="trade[exitShots]" id="" value="<% trade.exitShots[0] %>" />
+      <input class="form-control" type="text" name="trade[exitShots]" id="" value="<% trade.exitShots[1] %>" />
+      <input class="form-control" type="text" name="trade[exitShots]" id="" value="<% trade.exitShots[2] %>" />
     </div>
-    <div class="trade-input-form-control">
+    <div class="form-group">
+      <label for="entrySnapShot1"></label>
+    </div>
+    <div class="form-group">
+      <label for="entryNotes">Entry Notes</label>
+      <textarea class="form-control" name="trade[entryNotes]" id="entryNotes" rows="2"><%= trade.entryNotes%></textarea>
+    </div>
+    <div class="form-check">
       <label for="perfectEntry">Perfect Entry</label>
       <input class="form-control" type="checkbox" value="true" name="trade[perfectEntry]" id=""
         value="<%=trade.perfectEntry %>">
     </div>
-
-    <div class="trade-input-form-control">
-      <button class="btn btn-primary">submit</button>
+    <div class="form-group">
+      <button class="btn btn-primary mb-3">submit</button>
   </form>
 </div>

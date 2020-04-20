@@ -78,14 +78,11 @@ strong {
   color: white;
 }
 
-.container-profile {
-  width: max-content;
-  background-color: var(--clr-dark);
-  color: white;
+.container {
+  background-color: var(--dark);
+  color: #ffffff;
 }
 
-.container-signup {
-  width: max-content;
-  background-color: var(--clr-dark);
+.table{
   color: white;
 }
