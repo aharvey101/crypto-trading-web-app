@@ -1,7 +1,7 @@
 <%- include('../partials/backend/header') %>
 
 <div class="trade-input-container">
-  <form action="/trades/<%= trade._id %>?_method=PUT" method='POST' class="trade-input-form ">
+  <form action="/report/<%= trade._id %>?_method=PUT" method='POST' class="trade-input-form ">
     <div class="hero__signup-title h2">Trade Input</div>
     <div class="trade-input-form-control">
       <label for="pair">Pair</label>
@@ -30,16 +30,18 @@
     </div>
     <div class="trade-input-form-control">
       <label for="portfolioSize">Portfolio Size (USD)</label>
-      <input class="form-control" type="number" name="trade[invalidationPrice]" id="" value="<%= trade.invalidationPrice %>">
+      <input class="form-control" type="number" name="trade[invalidationPrice]" id=""
+        value="<%= trade.invalidationPrice %>">
     </div>
     <div class="trade-input-form-control">
       <label for="riskPercentage">Risk Percentage</label>
-      <input class="form-control" type="number" min name="trade[riskPercentage]" id="" value="<%= trade.riskPercentage %>">
+      <input class="form-control" type="number" min name="trade[riskPercentage]" id=""
+        value="<%= trade.riskPercentage %>">
     </div>
     <div class="trade-input-form-control">
       <label for="entrySnapShot1">Entry Snap Shots (3 minumum)</label>
       <% trade.entryShots.forEach(shot => { %>
-        <input class="form-control" type="text" name="trade[entryShots]" id="" value="<%= shot %>">
+      <input class="form-control" type="text" name="trade[entryShots]" id="" value="<%= shot %>">
       <% }); %>
     </div>
     <div class="trade-input-form-control">
@@ -48,7 +50,8 @@
     </div>
     <div class="trade-input-form-control">
       <label for="perfectEntry">Perfect Entry</label>
-      <input class="form-control" type="checkbox" value="true" name="trade[perfectEntry]" id="" value="<%=trade.perfectEntry %>">
+      <input class="form-control" type="checkbox" value="true" name="trade[perfectEntry]" id=""
+        value="<%=trade.perfectEntry %>">
     </div>
 
     <div class="trade-input-form-control">

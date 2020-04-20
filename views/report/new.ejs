@@ -7,25 +7,18 @@
     const stopPrice = document.forms[0].elements[4].value;
     const pair = document.forms[0].elements[0].value;
     const portfolioRisk = document.forms[0].elements[6].value / 100;
-    let stopPrice = 1200;
-    let entryPrice = 1000;
-    function tradeRisk(stop, entry) {
-      if (entry > stop) {
-        let tradeRisk = 1 - (stop / entry)
-        return tradeRisk
-      } else {
-        tradeRisk = (stop / entry) - 1
-        return tradeRisk
-      }
-    }
-    tradeRisk()
-    const amount = (portfolioSize * portfolioRisk) / tradeRisk;
-    const tradeOutputString = ` -p ${pair} -a ${amount} -e ${entryPrice} -s ${stopPrice} `;
+    const risk = 1 - (stopPrice / entryPrice)
+    let amount = (portfolioSize * portfolioRisk) / risk;
+    let positionSize = amount / entryPrice
+    console.log(positionSize)
+    const tradeOutputString = ` -p ${pair} -ps ${positionSize} -e ${entryPrice} -s ${stopPrice} `;
+    document.getElementById('output').innerHTML = tradeOutputString;
     console.log(tradeOutputString);
+
   }
 </script>
 <div class="container container-profile">
-  <form action="/trades" method="POST" class="trade-input-form">
+  <form action="/report" method="POST" class="trade-input-form">
     <div class="hero__signup-title h2">Trade Input</div>
     <div class="trade-input-form-control">
       <label for="pair">Pair</label>
@@ -88,9 +81,10 @@
     </div>
   </form>
   <div class="trade-input-form-control">
-    <button class="btn btn-primary mt-2" onclick="makeOrder()">
+    <button class="btn btn-primary mt-2" onclick="outputString()">
       Generate String
     </button>
+    <h2 id="output"></h2>
   </div>
 </div>
 
