@@ -19,6 +19,7 @@ const tradeSchema = new mongoose.Schema({
   invalidationPrice: Number,
   portfolioSize: Number,
   riskPercentage: Number,
+  direction: String,
   entryShots: [],
   exitShots: [],
   Checklist: {
