@@ -29,18 +29,6 @@
 
 /* General Styles */
 
-@media (min-width: 800px) {
-  :root {
-    --fs-h1: 4.5rem;
-    --fs-h2: 2rem;
-    --fs-h3: 1.5rem;
-    --fs-body: 1.125rem;
-  }
-}
-
-.h2 {
-  font-size: var(--fs-h2);
-}
 
 html {
   scroll-behavior: smooth;

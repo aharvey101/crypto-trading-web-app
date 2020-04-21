@@ -1,7 +1,8 @@
 <%- include('../partials/backend/header')%>
 <script>
 
-  function outputString() {
+  function outputString(e) {
+    e.preventDefault()
     const portfolioSize = document.forms[0].elements[5].value;
     const entryPrice = document.forms[0].elements[3].value;
     const stopPrice = document.forms[0].elements[4].value;
@@ -10,11 +11,19 @@
     const risk = 1 - (stopPrice / entryPrice)
     let amount = (portfolioSize * portfolioRisk) / risk;
     let positionSize = amount / entryPrice
-    console.log(positionSize)
     const tradeOutputString = ` -p ${pair} -ps ${positionSize} -e ${entryPrice} -s ${stopPrice} `;
     document.getElementById('output').innerHTML = tradeOutputString;
-    console.log(tradeOutputString);
 
+  }
+
+  function entryShots(e) {
+    e.preventDefault()
+    let parent = document.getElementById('entryShots')
+    let elem = document.createElement('input')
+    elem.setAttribute('class', "form-control mt-2")
+    elem.type = "text"
+    elem.name = "trade[entryShots]"
+    parent.append(elem)
   }
 </script>
 <div class="container rounded mx-auto col-5 mt-5">
@@ -26,15 +35,15 @@
     </div>
     <div class="form-group">
       <label for="pair">Pair</label>
-      <input id="pair" class="form-control" type="text" name="trade[pair]" placeholder="BTCUSD" />
+      <input required id="pair" class="form-control" type="text" name="trade[pair]" placeholder="BTCUSD" />
     </div>
     <div class="form-group">
       <label for="timeframe">Timeframe</label>
-      <input class="form-control" type="text" name="trade[timeframe]" id="" placeholder="8hr" />
+      <input required class="form-control" type="text" name="trade[timeframe]" id="" placeholder="8hr" />
     </div>
     <div class="form-group">
       <label for="tradeType">Trade Type</label>
-      <select class="form-control" name="trade[tradeType]" id="tradeType">
+      <select class="form-control" name="trade[tradeType]" id="tradeType" required>
         <option>--Please Choose An Option--</option>
         <option value="Cradle">Cradle</option>
         <option value="Breakout">Breakout</option>
@@ -43,20 +52,26 @@
     </div>
     <div class="form-group">
       <label for="entryPrice">Entry Price</label>
-      <input class="form-control" type="number" name="trade[entryPrice]" id="" placeholder="$100" />
+      <input required class="form-control" type="number" name="trade[entryPrice]" id="" placeholder="$100" />
     </div>
     <div class="form-group">
       <label for="stopPrice">Stop Price</label>
-      <input class="form-control" type="number" name="trade[stopPrice]" id="" placeholder="$95" />
+      <input required class="form-control" type="number" name="trade[stopPrice]" id="" placeholder="$95" />
     </div>
     <div class="form-group">
       <label for="portfolioSize">Portfolio Size (USD)</label>
-      <input id="portfolioSize" class="form-control" type="number" name="trade[portfolioSize]" id=""
+      <input required id="portfolioSize" class="form-control" type="number" name="trade[portfolioSize]" id=""
         placeholder="$1000" />
     </div>
     <div class="form-group">
       <label for="riskPercentage">Risk Percentage</label>
       <input class="form-control" type="number" min name="trade[riskPercentage]" id="" placeholder="1%" />
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary mb-2" onclick="outputString(event)">
+        Generate String
+      </button>
+      <p id="output"></p>
     </div>
     <div class="form-group">
       <label for="direction">Direction</label>
@@ -66,19 +81,12 @@
         <option value="Short">Short</option>
       </select>
     </div>
-    <div class="form-group">
+    <div id="entryShots" class="form-group">
       <label for="entrySnapShot1">Entry Snap Shots (3 minumum)</label>
       <input class="form-control" type="text" name="trade[entryShots]" id=""
         placeholder="http://yoururl.com/someimage.jpg" />
-      <input class="form-control" type="text" name="trade[entryShots]" id=""
-        placeholder="http://yoururl.com/someimage.jpg" />
-      <input class="form-control" type="text" name="trade[entryShots]" id=""
-        placeholder="http://yoururl.com/someimage.jpg" />
-      <input class="form-control" type="text" name="trade[entryShots]" id=""
-        placeholder="http://yoururl.com/someimage.jpg" />
-      <input class="form-control" type="text" name="trade[entryShots]" id=""
-        placeholder="http://yoururl.com/someimage.jpg" />
     </div>
+    <button class="btn btn-primary btn-sm mb-2" onclick="entryShots(event)">Add New entry Image</button>
     <div class="form-group">
       <label for="entryNotes">Entry Notes</label>
       <textarea class="form-control" name="trade[entryNotes]" id="entryNotes" rows="5"></textarea>
@@ -93,12 +101,6 @@
       <button class="btn btn-primary">submit</button>
     </div>
   </form>
-  <div class="form-group">
-    <button class="btn btn-primary mb-2" onclick="outputString()">
-      Generate String
-    </button>
-    <p id="output"></p>
-  </div>
 </div>
 
 <%- include('../partials/footer')%>

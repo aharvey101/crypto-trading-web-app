@@ -1,5 +1,27 @@
 <%- include('../partials/backend/header') %>
 
+<script>
+  function addNewExitShot(e) {
+    e.preventDefault()
+    let parent = document.getElementById('exitShots')
+    let elem = document.createElement('input')
+    elem.setAttribute('class', "form-control mt-2")
+    elem.type = "text"
+    elem.name = "trade[exitShots]"
+    parent.append(elem)
+  }
+
+  function addNewEntryShot(e) {
+    e.preventDefault()
+    let parent = document.getElementById('entryShots')
+    let elem = document.createElement('input')
+    elem.setAttribute('class', "form-control mt-2")
+    elem.type = "text"
+    elem.name = "trade[entryShots]"
+    parent.append(elem)
+  }
+</script>
+
 <div class="container rounded mt-5 col-5">
   <form action="/report/<%= trade._id %>?_method=PUT" method='POST' class="">
     <div class="text-center pt-2">
@@ -7,15 +29,15 @@
     </div>
     <div class="form-group">
       <label for="pair">Pair</label>
-      <input class="form-control" type="text" name="trade[pair]" value="<%= trade.pair %>">
+      <input required class="form-control" type="text" name="trade[pair]" value="<%= trade.pair %>">
     </div>
     <div class="form-group">
       <label for="timeframe">Timeframe</label>
-      <input class="form-control" type="text" name="trade[timeframe]" id="" value="<%= trade.timeframe %>">
+      <input required class="form-control" type="text" name="trade[timeframe]" id="" value="<%= trade.timeframe %>">
     </div>
     <div class="form-group">
       <label for="tradeType">Trade Type</label>
-      <select class="form-control" required="true" name="trade[tradeType]" id="tradeType">
+      <select required class="form-control" required="true" name="trade[tradeType]" id="tradeType">
         <option value="">--Please Choose An Option--</option>
         <option value="Cradle">Cradle</option>
         <option value="Breakout">Breakout</option>
@@ -24,43 +46,44 @@
     </div>
     <div class="form-group">
       <label for="entryPrice">Entry Price</label>
-      <input class="form-control" type="number" name="trade[entryPrice]" id="" value="<%= trade.entryPrice %>">
+      <input required class="form-control" type="number" name="trade[entryPrice]" id="" value="<%= trade.entryPrice %>">
     </div>
     <div class="form-group">
       <label for="stopPrice">Stop Price</label>
-      <input class="form-control" type="number" name="trade[stopPrice]" id="" value="<%= trade.stopPrice %>">
+      <input required class="form-control" type="number" name="trade[stopPrice]" id="" value="<%= trade.stopPrice %>">
     </div>
     <div class="form-group">
       <label for="portfolioSize">Portfolio Size (USD)</label>
-      <input class="form-control" type="number" name="trade[invalidationPrice]" id=""
+      <input required class="form-control" type="number" name="trade[portfolioSize]" id=""
         value="<%= trade.invalidationPrice %>">
     </div>
     <div class="form-group">
       <label for="riskPercentage">Risk Percentage</label>
-      <input class="form-control" type="number" min name="trade[riskPercentage]" id=""
+      <input required class="form-control" type="number" min name="trade[riskPercentage]" id=""
         value="<%= trade.riskPercentage %>">
     </div>
     <div class="form-group">
       <label for="direction">Direction</label>
-      <select class="form-control" name="direction" id="">
+      <select required class="form-control" name="direction" id="">
         <option value="">-- Please select an option --</option>
         <option value="Long">Long</option>
         <option value="Short">Short</option>
       </select>
     </div>
-    <div class="form-group">
+    <div id="entryShots" class="form-group">
       <label for="entrySnapShot1">Entry Snap Shots (3 minumum)</label>
       <% trade.entryShots.forEach(shot => { %>
       <input class="form-control mt-2" type="text" name="trade[entryShots]" id="entrySnapShot1" value="<%= shot %>">
       <% }); %>
     </div>
-    <!--  To Do: Make editing the trade to add exit shots work -->
-    <!-- <div class="form-group">
+    <button class="btn btn-primary btn-sm mb-2" onclick="addNewEntryShot(event)">Add New entry Image</button>
+    <div id="exitShots" class="form-group">
       <label for="entrySnapShot1">Exit</label>
-      <input class="form-control m-1" type="text" name="trade[exitShots]" id="" value="" />
-      <input class="form-control m-1" type="text" name="trade[exitShots]" id="" value="" />
-      <input class="form-control m-1" type="text" name="trade[exitShots]" id="" value="" />
-    </div> -->
+      <% trade.exitShots.forEach(shot =>{ %>
+      <input class="form-control mt-2" type="text" name="trade[exitShots]" id="exitSnapShot1" value="<%= shot %>">
+      <% }) %>
+    </div>
+    <button class="btn btn-primary btn-sm" onclick="addNewExitShot(event)">Add New Exit Image</button>
     <div class="form-group">
       <label for="entrySnapShot1"></label>
     </div>
@@ -70,10 +93,10 @@
     </div>
     <div class="form-check">
       <label for="perfectEntry">Perfect Entry</label>
-      <input class="form-control-check" type="checkbox" value="true" name="trade[perfectEntry]" id=""
+      <input required class="form-control-check" type="checkbox" value="true" name="trade[perfectEntry]" id=""
         value="<%=trade.perfectEntry %>">
     </div>
     <div class="form-group">
-      <button class="btn btn-primary mb-3">submit</button>
+      <button class="btn btn-success btn-sm mb-3">Submit</button>
   </form>
 </div>

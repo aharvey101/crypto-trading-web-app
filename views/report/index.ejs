@@ -25,13 +25,13 @@
         <td><%= trade.direction %></td>
         <td><%= trade.perfectEntry %></td>
         <td>
-          <a href="/report/<%= trade.id %>"><button class="btn btn-primary">More Info</button></a>
+          <a href="/report/<%= trade.id %>"><button class="btn btn-sm btn-primary">More Info</button></a>
         </td>
       </tr>
       <% }) %>
     </tbody>
   </table>
-  <a href="/report/new"><button class="btn btn-primary mb-3">New Trade</button></a>
+  <a href="/report/new"><button class="btn btn-primary btn-sm mb-3">New Trade</button></a>
 </div>
 
 <%- include('../partials/backend/footer') %>

@@ -6,7 +6,13 @@ const moment = require('moment')
 const user = require('../models/user')
 
 router.get('/', middleware.isLoggedIn, (req, res) => {
-  res.render('trade-management/index')
+  Trade.find({ "author.id": req.user._id }, function (err, usersTrades) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.render('trade-management/index', { trade: usersTrades })
+    }
+  })
 })
 
 

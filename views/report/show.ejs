@@ -36,16 +36,16 @@
       <h3>Entry Notes:</h3>
     </div>
     <div class="col text-center">
-      <h4><%= trade.entryPrice %></h4>
-      <h4><%= trade.stopPrice %></h4>
-      <h4><%= trade.portfolioSize %></h4>
-      <h4><%= trade.riskPercentage %></h4>
-      <h4><%= trade.perfectEntry %></h4>
-      <h4><%= trade.entryNotes %></h4>
+      <h3><%= trade.entryPrice %></h3>
+      <h3><%= trade.stopPrice %></h3>
+      <h3><%= trade.portfolioSize %></h3>
+      <h3><%= trade.riskPercentage %></h3>
+      <h3><%= trade.perfectEntry %></h3>
+      <p><%= trade.entryNotes %></p>
     </div>
   </div>
 
-  <a href="/report/<%= trade.id %>/edit"><button class="btn btn-primary mb-3">Edit</button></a>
+  <a href="/report/<%= trade.id %>/edit"><button class="btn btn-danger btn-sm mb-3">Edit</button></a>
 </div>
 
 <%- include('../partials/footer') %>
