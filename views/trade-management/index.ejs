@@ -8,31 +8,26 @@
     <table class="table table-sm table-hover table-dark">
       <thead>
         <tr>
-          <th scope="col">Entry Date</th>
-          <th scope="col">Pair</th>
-          <th scope="col">Risk %</th>
-          <th scope="col">Entry ⏱</th>
-          <th scope="col">Trade Type</th>
-          <th scope="col">Direction</th>
-          <th scope="col">Perfect Entry</th>
-          <th scope="col">View</th>
+          <th scope="col">Future</th>
+          <th scope="col">Side</th>
+          <th scope="col">Size</th>
+          <th scope="col">Est. Liquidation Price </th>
+          <th scope="col">Avg Open Price</th>
+          <th scope="col">PnL</th>
+
         </tr>
       </thead>
       <tbody>
-        <% trade.forEach(trade => { %>
         <tr>
-          <td><%= trade.entryDate%></td>
-          <td><%= trade.pair%></td>
-          <td><%= trade.riskPercentage%></td>
-          <td><%= trade.timeframe %></td>
-          <td><%= trade.tradeType %></td>
-          <td><%= trade.direction %></td>
-          <td><%= trade.perfectEntry %></td>
-          <td>
-            <a href="/report/<%= trade.id %>"><button class="btn btn-sm btn-primary">More Info</button></a>
-          </td>
+          <% pos.forEach(element => { %>
+          <td><%= element.future %></td>
+          <td><%= element.side %></td>
+          <td><%= element.size %></td>
+          <td><%= element.estimatedLiquidationPrice %></td>
+          <td><%= element.entryPrice %></td>
+          <td><%= element.unrealisedPnl %></td>
+          <%  }); %>
         </tr>
-        <% }) %>
       </tbody>
     </table>
     <a href="/report/new"><button class="btn btn-primary btn-sm mb-3">New Trade</button></a>
