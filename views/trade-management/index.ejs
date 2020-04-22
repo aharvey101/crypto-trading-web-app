@@ -18,16 +18,16 @@
         </tr>
       </thead>
       <tbody>
+        <% pos.forEach(element => { %>
         <tr>
-          <% pos.forEach(element => { %>
           <td><%= element.future %></td>
           <td><%= element.side %></td>
           <td><%= element.size %></td>
           <td><%= element.estimatedLiquidationPrice %></td>
           <td><%= element.entryPrice %></td>
           <td><%= element.unrealisedPnl %></td>
-          <%  }); %>
         </tr>
+        <%  }); %>
       </tbody>
     </table>
     <a href="/report/new"><button class="btn btn-primary btn-sm mb-3">New Trade</button></a>
